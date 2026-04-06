@@ -228,6 +228,17 @@ body {
   color: var(--border);
 }
 
+.project-url {
+  font-size: 8pt;
+  color: var(--accent);
+  text-decoration: none;
+}
+@media print {
+  .project-url {
+    color: var(--secondary) !important;
+  }
+}
+
 /* ── Tech grid (career.html) ── */
 .tech-row {
   display: flex;
