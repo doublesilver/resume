@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"# README에서 URL 찾기\\nfor repo in ~/Projects/scan ~/Projects/spaceshield-admin ~/Projects/internet-dinor ~/Projects/readme ~/Projects/demo-booking ~/Projects/demo-cafe ~/Projects/demo-catalog...",
-  "error": "Exit code 1\n=== oddparty-site ===\nhttps://oddparty.vercel.app\n=== package.json homepage ===",
-  "timestamp": "2026-04-06T04:38:02.209Z",
-  "retry_count": 1
-}
