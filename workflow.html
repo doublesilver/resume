@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이은석 — 작업 방식</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-size: 10pt;
+      }
+      .name {
+        font-size: 20pt;
+      }
+      .section {
+        margin-bottom: 18px;
+      }
+      .divider {
+        margin: 13px 0;
+      }
+      .flow-step {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 14px;
+        page-break-inside: avoid;
+      }
+      .flow-num {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-size: 9pt;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .flow-body {
+        flex: 1;
+      }
+      .flow-title {
+        font-weight: 700;
+        font-size: 10.5pt;
+        color: var(--text);
+        margin-bottom: 3px;
+      }
+      .flow-desc {
+        font-size: 9.5pt;
+        color: var(--secondary);
+        line-height: 1.65;
+      }
+      .flow-sub {
+        margin-top: 5px;
+        font-size: 9pt;
+        color: var(--secondary);
+      }
+      .flow-sub li {
+        margin-bottom: 2px;
+      }
+      .tool-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .tool-card {
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 8px 10px;
+        page-break-inside: avoid;
+      }
+      .tool-name {
+        font-weight: 700;
+        font-size: 9.5pt;
+        color: var(--text);
+      }
+      .tool-desc {
+        font-size: 8.5pt;
+        color: var(--secondary);
+        margin-top: 2px;
+        line-height: 1.5;
+      }
+      .note-box {
+        background: #fafafa;
+        border-left: 3px solid var(--accent);
+        padding: 8px 12px;
+        border-radius: 0 4px 4px 0;
+        font-size: 9pt;
+        color: var(--secondary);
+        line-height: 1.6;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <div class="header">
+        <div class="name">이은석</div>
+        <div class="title-line">풀스택 개발자 &nbsp;·&nbsp; 작업 방식 소개</div>
+        <div class="contacts">
+          <span
+            >✉
+            <a href="mailto:korea5410@gmail.com">korea5410@gmail.com</a></span
+          >
+          <span>☎ 010-7769-4682</span>
+          <span
+            >GitHub
+            <a href="https://github.com/doublesilver" target="_blank"
+              >github.com/doublesilver</a
+            ></span
+          >
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Overview -->
+      <div class="section">
+        <div class="section-title">개요</div>
+        <p style="font-size: 9.5pt; color: var(--secondary); line-height: 1.65">
+          혼자 기획부터 납품까지 수행하는 프리랜서 특성상, 요구사항 해석과 범위
+          설정이 개발 품질만큼 중요합니다. AI 도구를 워크플로에 통합해 기획
+          초안을 빠르게 구조화하고, 코드 품질과 납기를 동시에 챙기는 방식으로
+          작업합니다.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Workflow -->
+      <div class="section">
+        <div class="section-title">작업 흐름</div>
+
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-body">
+            <div class="flow-title">요구사항 접수</div>
+            <div class="flow-desc">
+              클라이언트로부터 카톡·이메일로 요구사항 수령. 추상적인
+              표현("예쁘게", "빠르게")은 이 단계에서 구체적인 기능 단위로
+              변환합니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-body">
+            <div class="flow-title">기획 초안 — Deep Interview</div>
+            <div class="flow-desc">
+              Claude Code의 <code>deep-interview</code> 기능으로 소크라테스식
+              질의응답을 진행합니다. AI가 가중치 기반 모호성 점수(ambiguity
+              score)를 측정하며, 20% 이하로 낮아질 때까지 숨겨진 가정을 하나씩
+              노출시킵니다.
+            </div>
+            <ul class="flow-sub bullets">
+              <li>목표 명확성 · 제약 조건 · 성공 기준 3개 축으로 스코어링</li>
+              <li>
+                산출물: <code>.omc/specs/deep-interview-{slug}.md</code> (명세
+                파일)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-body">
+            <div class="flow-title">규칙 정의 — CLAUDE.md</div>
+            <div class="flow-desc">
+              프로젝트 루트의 <code>CLAUDE.md</code>에 코딩 컨벤션, 브랜치 전략,
+              사용 기술 스택, 금지 패턴을 명시합니다. 이 파일은 AI가 세션마다
+              자동으로 읽기 때문에 매번 재설명 없이 일관된 결과물을 얻습니다.
+            </div>
+            <div class="note-box">
+              예시: "커밋 메시지 한글 · main/feature 브랜치 분리 · .env 절대
+              수정 금지 · 불필요한 주석 없이 실용적으로"
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-body">
+            <div class="flow-title">구현 — Autopilot / Ralph</div>
+            <div class="flow-desc">
+              명세 파일을 입력으로 autopilot을 실행하면 계획 수립 → 병렬 구현 →
+              QA 사이클 → 다각도 검증까지 자동으로 진행됩니다. 복잡한 반복
+              작업은 ralph(지속 루프 실행기)로 처리합니다.
+            </div>
+            <ul class="flow-sub bullets">
+              <li>독립적인 작업은 여러 에이전트가 병렬 처리</li>
+              <li>QA 사이클: 빌드 → 린트 → 테스트 → 수정 반복 (최대 5회)</li>
+              <li>최종 검증: 아키텍처 · 보안 · 코드 품질 3개 관점</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-body">
+            <div class="flow-title">데모 공유 및 납품</div>
+            <div class="flow-desc">
+              Vercel 프리뷰 배포로 클라이언트에게 링크 전달 → 피드백 반영 → main
+              브랜치 머지 후 프로덕션 배포. 민감 데이터가 있는 경우 Railway DB에
+              시드 데이터를 세팅한 별도 데모 환경을 구성합니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Tools -->
+      <div class="section">
+        <div class="section-title">주요 도구</div>
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-name">Claude Code CLI</div>
+            <div class="tool-desc">
+              터미널에서 직접 실행하는 AI 코딩 에이전트. 멀티 에이전트
+              오케스트레이션으로 계획·구현·검증을 자동화.
+            </div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-name">deep-interview</div>
+            <div class="tool-desc">
+              소크라테스식 질의응답으로 요구사항 모호성을 수치로 측정하고 명세
+              파일을 자동 생성.
+            </div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-name">CLAUDE.md</div>
+            <div class="tool-desc">
+              프로젝트별 AI 행동 규칙 파일. 커밋 컨벤션·브랜치 전략·금지 패턴을
+              세션 간 일관되게 유지.
+            </div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-name">Vercel + Railway</div>
+            <div class="tool-desc">
+              프리뷰 배포로 클라이언트 피드백 루프 단축. Railway PostgreSQL로
+              데모 DB 환경 분리.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Philosophy -->
+      <div class="section">
+        <div class="section-title">작업 철학</div>
+        <ul class="bullets" style="font-size: 9.5pt; color: var(--secondary)">
+          <li>
+            요구사항이 불명확한 채로 코딩을 시작하지 않는다 — 기획 단계에서
+            모호성을 제거하는 비용이 리팩터링보다 훨씬 싸다.
+          </li>
+          <li>
+            AI는 대체재가 아닌 증폭기 — 판단과 책임은 개발자에게, 반복 작업과
+            패턴 인식은 AI에게 위임한다.
+          </li>
+          <li>
+            최소 복잡도 원칙 — 필요한 만큼만 추상화하고, 한 번 쓰이는 코드는
+            분리하지 않는다.
+          </li>
+          <li>
+            납기와 품질의 균형 — 프리랜서 현실에서 완벽보다 납기 내 동작하는
+            코드가 우선이지만, 유지보수 비용을 키우는 지름길은 택하지 않는다.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
