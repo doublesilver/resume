@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --text: #111827;
+  --secondary: #6b7280;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --chip-bg: #f3f4f6;
+  --font: "Noto Sans KR", sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: #f9fafb;
+  font-size: 10pt;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page wrapper ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 15mm;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.title-line {
+  font-size: 11pt;
+  color: var(--secondary);
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 8px;
+  font-size: 8.5pt;
+  color: var(--secondary);
+}
+
+.contacts a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+/* ── Section ── */
+.section {
+  margin-bottom: 18px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.section-title {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 9px;
+}
+
+/* ── Skill tags ── */
+.skills-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 5px;
+  font-size: 9pt;
+}
+
+.skills-label {
+  min-width: 72px;
+  font-weight: 500;
+  color: var(--secondary);
+  padding-top: 2px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  background: var(--chip-bg);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 8pt;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ── Experience / career ── */
+.exp-item {
+  margin-bottom: 10px;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.exp-role {
+  font-weight: 600;
+  font-size: 10pt;
+}
+
+.exp-period {
+  font-size: 8.5pt;
+  color: var(--secondary);
+}
+
+.bullets {
+  list-style: none;
+  margin-top: 4px;
+}
+
+.bullets li {
+  font-size: 9pt;
+  color: #374151;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.55;
+}
+
+.bullets li::before {
+  content: "·";
+  position: absolute;
+  left: 3px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Education ── */
+.edu-item {
+  font-size: 9.5pt;
+  color: #374151;
+}
+
+/* ── Project card (career.html) ── */
+.project {
+  margin-bottom: 22px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.project-name {
+  font-size: 10.5pt;
+  font-weight: 700;
+}
+
+.project-period {
+  font-size: 8.5pt;
+  color: var(--secondary);
+}
+
+.project-desc {
+  font-size: 8.5pt;
+  color: var(--secondary);
+  margin-bottom: 6px;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.project-bullets {
+  list-style: none;
+}
+
+.project-bullets li {
+  font-size: 9pt;
+  color: #374151;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.project-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--border);
+}
+
+/* ── Tech grid (career.html) ── */
+.tech-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 9pt;
+  align-items: flex-start;
+}
+
+.tech-label {
+  min-width: 90px;
+  font-weight: 500;
+  color: var(--secondary);
+  padding-top: 2px;
+}
+
+/* ── Page break utility ── */
+.page-break {
+  page-break-before: always;
+  break-before: page;
+  height: 0;
+}
+
+/* ── Print ── */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    min-height: unset;
+    width: auto;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  .section,
+  .project {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
